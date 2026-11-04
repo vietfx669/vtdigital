@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="Vtdigital Studio — thiết kế website, landing page và nhận diện thương hiệu tại vtdigital.sbs" />
+    <link rel="icon" href="data:," />
+    <title>Vtdigital Studio — vtdigital.sbs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root{
+        --bg:#ffffff;
+        --bg-soft:#f6f7f8;
+        --surface:#ffffff;
+        --ink:#16191d;
+        --ink-2:#454e59;
+        --muted:#717b88;
+        --line:#e3e6ea;
+        --accent:#e8490f;
+        --accent-soft:#fdf0ea;
+        --ok:#0d7a4a;
+        --radius:12px;
+      }
+      @media (prefers-color-scheme: dark){
+        :root{
+          --bg:#121417;
+          --bg-soft:#17191d;
+          --surface:#1a1d21;
+          --ink:#f0f1f2;
+          --ink-2:#c3c9d1;
+          --muted:#8f98a3;
+          --line:#2b2f36;
+          --accent:#ff7a3d;
+          --accent-soft:#2c1c13;
+          --ok:#3ecf8e;
+        }
+      }
+      *{box-sizing:border-box}
+      html{scroll-behavior:smooth}
+      body{
+        margin:0;background:var(--bg);color:var(--ink);
+        font-family:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
+        font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;
+      }
+      a{color:inherit}
+      .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+      @media(min-width:768px){.wrap{padding:0 28px}}
+
+      /* Header */
+      header{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+      .nav{display:flex;align-items:center;gap:18px;height:62px}
+      .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:18px;letter-spacing:-.01em;white-space:nowrap}
+      .brand .mark{width:32px;height:32px;flex:none;display:grid;place-items:center;overflow:hidden;background:var(--ink);color:var(--bg);border-radius:8px;font-size:12.5px;font-weight:800;line-height:1}
+      .brand .mark em{font-style:normal;color:var(--accent)}
+      .nav nav{display:none;gap:26px;margin-left:8px}
+      .nav nav a{text-decoration:none;font-size:14.5px;font-weight:500;color:var(--ink-2)}
+      .nav nav a:hover{color:var(--accent)}
+      .nav .spacer{flex:1}
+      @media(min-width:860px){.nav nav{display:flex}}
+      .btn{
+        display:inline-flex;align-items:center;gap:8px;text-decoration:none;cursor:pointer;
+        font-family:inherit;font-weight:600;font-size:15px;border-radius:9px;
+        padding:11px 20px;border:1px solid transparent;background:none;color:var(--ink);
+      }
+      .btn-primary{background:var(--ink);color:var(--bg)}
+      .btn-primary:hover{background:var(--accent);color:#fff}
+      .btn-outline{border-color:var(--line);background:var(--surface)}
+      .btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+      .btn-sm{padding:8px 15px;font-size:14px}
+      @media(max-width:859px){.nav .btn{display:none}}
+      .menu-btn{display:grid;place-items:center;width:38px;height:38px;border:1px solid var(--line);background:var(--surface);border-radius:9px;cursor:pointer;color:var(--ink)}
+      @media(min-width:860px){.menu-btn{display:none}}
+      .mobile-menu{display:none;border-top:1px solid var(--line);padding:6px 20px 12px}
+      .mobile-menu.open{display:block}
+      .mobile-menu a{display:block;padding:10px 0;text-decoration:none;font-weight:500;color:var(--ink-2);border-bottom:1px solid var(--line)}
+      .mobile-menu a:last-child{border-bottom:0}
+      @media(min-width:860px){.mobile-menu{display:none!important}}
+
+      /* Hero */
+      .hero{padding:64px 0 56px;text-align:center}
+      @media(min-width:860px){.hero{padding:88px 0 72px}}
+      .domain-line{
+        display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:500;color:var(--ink-2);
+        border:1px solid var(--line);border-radius:999px;padding:6px 14px;margin-bottom:26px;background:var(--surface);
+      }
+      .domain-line .dot{width:7px;height:7px;border-radius:50%;background:var(--ok)}
+      .domain-line b{color:var(--accent);font-weight:700}
+      h1{margin:0 auto 18px;max-width:16em;font-size:clamp(32px,5.4vw,50px);line-height:1.18;font-weight:800;letter-spacing:-.02em;text-wrap:balance}
+      h1 span{color:var(--accent)}
+      .hero p{margin:0 auto 30px;max-width:38em;font-size:clamp(16px,2vw,18px);color:var(--ink-2)}
+      .hero-cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+      .hero-note{margin-top:22px;font-size:14px;color:var(--muted)}
+
+      /* Browser preview */
+      .preview{max-width:760px;margin:52px auto 0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--surface);text-align:left}
+      .preview-bar{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line);background:var(--bg-soft)}
+      .preview-bar .dots{display:flex;gap:6px}
+      .preview-bar .dots i{width:10px;height:10px;border-radius:50%;display:block}
+      .preview-bar .dots i:nth-child(1){background:#ff5f57}
+      .preview-bar .dots i:nth-child(2){background:#febc2e}
+      .preview-bar .dots i:nth-child(3){background:#28c840}
+      .urlbar{flex:1;text-align:center;font-size:13px;font-weight:600;color:var(--ink-2);background:var(--surface);border:1px solid var(--line);border-radius:7px;padding:5px 10px}
+      .urlbar b{color:var(--accent)}
+      .preview-body{padding:26px 28px 30px}
+      .preview-body .p-logo{font-weight:800;font-size:15px;margin-bottom:16px}
+      .preview-body .p-logo em{font-style:normal;color:var(--accent)}
+      .preview-body h3{margin:0 0 8px;font-size:clamp(20px,3vw,26px);font-weight:800;letter-spacing:-.015em;line-height:1.3}
+      .preview-body h3 span{color:var(--accent)}
+      .preview-body p{margin:0 0 18px;color:var(--muted);font-size:14.5px;max-width:32em}
+      .p-row{display:flex;gap:10px;flex-wrap:wrap}
+      .p-btn{font-size:13px;font-weight:600;padding:9px 16px;border-radius:8px;background:var(--accent);color:#fff}
+      .p-btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+
+      /* Sections */
+      section{padding:60px 0}
+      @media(min-width:860px){section{padding:76px 0}}
+      .soft{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+      .sec-head{max-width:640px;margin-bottom:38px}
+      .sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+      .sec-label{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+      h2{margin:0 0 12px;font-size:clamp(25px,3.6vw,34px);font-weight:800;letter-spacing:-.02em;line-height:1.25;text-wrap:balance}
+      .sec-head p{margin:0;color:var(--muted);font-size:16px}
+
+      /* Services */
+      .svc-grid{display:grid;gap:16px}
+      @media(min-width:680px){.svc-grid{grid-template-columns:1fr 1fr}}
+      @media(min-width:980px){.svc-grid{grid-template-columns:repeat(3,1fr)}}
+      .svc{border:1px solid var(--line);border-radius:var(--radius);padding:24px;background:var(--surface)}
+      .svc .ic{width:40px;height:40px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;margin-bottom:16px}
+      .svc h3{margin:0 0 8px;font-size:17px;font-weight:700}
+      .svc p{margin:0;color:var(--muted);font-size:14.5px}
+
+      /* Work */
+      .work-grid{display:grid;gap:16px}
+      @media(min-width:680px){.work-grid{grid-template-columns:1fr 1fr}}
+      @media(min-width:980px){.work-grid{grid-template-columns:repeat(3,1fr)}}
+      .work{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface)}
+      .work .thumb{padding:22px 22px 18px;border-bottom:1px solid var(--line)}
+      .work .thumb .t-logo{font-size:11px;font-weight:800;letter-spacing:.06em;margin-bottom:12px}
+      .work .thumb .t-h{font-size:19px;font-weight:800;line-height:1.3;letter-spacing:-.01em;margin-bottom:14px}
+      .work .thumb .t-btn{display:inline-block;font-size:11px;font-weight:700;color:#fff;padding:6px 12px;border-radius:6px}
+      .work .meta{padding:18px 22px 20px}
+      .work .cat{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-bottom:5px}
+      .work h3{margin:0 0 6px;font-size:16.5px;font-weight:700}
+      .work p{margin:0;color:var(--muted);font-size:14px}
+      .work-note{margin-top:20px;font-size:13.5px;color:var(--muted)}
+
+      /* Process */
+      .steps{display:grid;gap:16px}
+      @media(min-width:680px){.steps{grid-template-columns:1fr 1fr}}
+      @media(min-width:980px){.steps{grid-template-columns:repeat(4,1fr)}}
+      .step{border:1px solid var(--line);border-radius:var(--radius);padding:24px;background:var(--surface)}
+      .step .n{font-size:14px;font-weight:800;color:var(--accent);margin-bottom:12px}
+      .step h3{margin:0 0 7px;font-size:16.5px;font-weight:700}
+      .step p{margin:0;color:var(--muted);font-size:14.5px}
+
+      /* Pricing */
+      .price-grid{display:grid;gap:16px}
+      @media(min-width:900px){.price-grid{grid-template-columns:repeat(3,1fr)}}
+      .plan{border:1px solid var(--line);border-radius:var(--radius);padding:28px;background:var(--surface);display:flex;flex-direction:column}
+      .plan.hot{border-color:var(--ink);border-width:1.5px}
+      .plan .for{font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+      .plan h3{margin:0 0 6px;font-size:19px;font-weight:800}
+      .plan .desc{margin:0 0 18px;color:var(--muted);font-size:14.5px}
+      .plan .amount{margin:0 0 20px}
+      .plan .amount b{display:block;font-size:19px;color:var(--accent);font-weight:700;line-height:1.3}
+      .plan ul{list-style:none;margin:0 0 24px;padding:18px 0 0;border-top:1px solid var(--line);display:grid;gap:10px;flex:1}
+      .plan li{display:flex;gap:9px;font-size:14.5px;color:var(--ink-2);align-items:flex-start}
+      .plan li svg{flex:none;margin-top:4px;color:var(--ok)}
+      .plan .btn{justify-content:center}
+
+      /* FAQ */
+      .faq-list{max-width:760px}
+      .faq-item{padding:20px 0;border-bottom:1px solid var(--line)}
+      .faq-item:first-child{padding-top:4px}
+      .faq-item h3{margin:0 0 6px;font-size:16.5px;font-weight:700}
+      .faq-item p{margin:0;color:var(--muted);font-size:15px;max-width:44em}
+
+      /* Contact */
+      .contact-grid{display:grid;gap:36px}
+      @media(min-width:900px){.contact-grid{grid-template-columns:1fr 1fr;gap:56px;align-items:start}}
+      .contact-info p{color:var(--muted);margin:0 0 22px;max-width:30em}
+      .contact-row{display:flex;flex-direction:column;gap:4px;padding:14px 0;border-top:1px solid var(--line)}
+      .contact-row span{font-size:13px;color:var(--muted)}
+      .contact-row a,.contact-row b{font-size:16.5px;font-weight:600;text-decoration:none;font-style:normal}
+      .contact-row a:hover{color:var(--accent)}
+      .brief{display:grid;gap:12px}
+      .brief label{font-size:14px;font-weight:600;display:block}
+      .brief input,.brief select,.brief textarea{
+        width:100%;margin-top:6px;font-family:inherit;font-size:15px;font-weight:400;
+        padding:11px 13px;border-radius:9px;border:1px solid var(--line);
+        background:var(--surface);color:var(--ink);
+      }
+      .brief .btn{justify-self:start;margin-top:4px}
+      .brief-out{border:1px solid var(--line);border-radius:10px;padding:16px;background:var(--bg-soft)}
+      .brief-out pre{margin:0 0 12px;font-family:inherit;font-size:14px;line-height:1.6;white-space:pre-wrap;word-break:break-word;color:var(--ink-2)}
+      .brief-out .btn{margin:0 0 10px}
+      .brief-ok{font-size:14px;color:var(--ok);font-weight:500;margin:0}
+
+      /* Footer */
+      footer{border-top:1px solid var(--line);padding:44px 0 30px;background:var(--bg-soft)}
+      .foot-grid{display:flex;flex-wrap:wrap;gap:28px 48px;justify-content:space-between;margin-bottom:34px}
+      .foot-col h4{margin:0 0 12px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700}
+      .foot-col a{display:block;text-decoration:none;color:var(--ink-2);font-size:14.5px;padding:3px 0}
+      .foot-col a:hover{color:var(--accent)}
+      .foot-base{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;border-top:1px solid var(--line);padding-top:20px;font-size:13.5px;color:var(--muted)}
+      .foot-base b{color:var(--ink-2)}
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap nav">
+        <a class="brand" href="#top">
+          <span class="mark">VT<em>.</em></span>
+          <span>Vtdigital Studio</span>
+        </a>
+        <nav aria-label="Điều hướng chính">
+          <a href="#dich-vu">Dịch vụ</a>
+          <a href="#du-an">Dự án mẫu</a>
+          <a href="#quy-trinh">Quy trình</a>
+          <a href="#bang-gia">Gói dịch vụ</a>
+          <a href="#lien-he">Liên hệ</a>
+        </nav>
+        <span class="spacer"></span>
+        <a class="btn btn-primary btn-sm" href="#lien-he">Bắt đầu dự án</a>
+        <button class="menu-btn" id="menuBtn" aria-label="Mở menu" aria-expanded="false">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#dich-vu">Dịch vụ</a>
+        <a href="#du-an">Dự án mẫu</a>
+        <a href="#quy-trinh">Quy trình</a>
+        <a href="#bang-gia">Gói dịch vụ</a>
+        <a href="#lien-he">Liên hệ</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- HERO -->
+      <div class="hero">
+        <div class="wrap">
+          <span class="domain-line">Tên miền của studio:&nbsp;<b>vtdigital.sbs</b></span>
+          <h1>Vtdigital Studio — thiết kế website <span>gọn gàng, dễ dùng</span> cho doanh nghiệp</h1>
+          <p>Chúng tôi làm website giới thiệu, landing page và nhận diện thương hiệu với bố cục sạch, nội dung rõ ràng — để khách hàng tin tưởng và liên hệ với bạn dễ dàng hơn.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#lien-he">Nhận tư vấn miễn phí</a>
+            <a class="btn btn-outline" href="#du-an">Xem dự án mẫu</a>
+          </div>
+          <p class="hero-note">Thiết kế riêng theo thương hiệu · Chuẩn điện thoại · Bàn giao kèm hướng dẫn sử dụng</p>
+
+          <div class="preview" role="img" aria-label="Xem trước giao diện website Vtdigital Studio với địa chỉ vtdigital.sbs">
+            <div class="preview-bar">
+              <span class="dots"><i></i><i></i><i></i></span>
+              <span class="urlbar">vtdigital<b>.sbs</b></span>
+              <span style="width:42px"></span>
+            </div>
+            <div class="preview-body">
+              <div class="p-logo">VT<em>digital</em> Studio</div>
+              <h3>Website đẹp, rõ ràng,<br />kể đúng câu chuyện <span>của bạn.</span></h3>
+              <p>Trang chủ, giới thiệu, dịch vụ và liên hệ — đầy đủ những gì khách hàng cần, trình bày dễ đọc trên mọi thiết bị.</p>
+              <div class="p-row">
+                <span class="p-btn">Xem dịch vụ</span>
+                <span class="p-btn ghost">Liên hệ</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SERVICES -->
+      <section id="dich-vu" class="soft">
+        <div class="wrap">
+          <div class="sec-head">
+            <div class="sec-label">Dịch vụ</div>
+            <h2>Những gì studio có thể làm cho bạn</h2>
+            <p>Sáu dịch vụ cốt lõi, làm trọn gói từ ý tưởng đến khi website lên sóng.</p>
+          </div>
+          <div class="svc-grid">
+            <article class="svc">
+              <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3Z"/></svg></div>
+              <h3>Thiết kế website doanh nghiệp</h3>
+              <p>Website giới thiệu công ty và dịch vụ, cấu trúc rõ ràng, tải nhanh, dễ quản trị và mở rộng về sau.</p>
+            </article>
+            <article class="svc">
+              <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 21h8"/></svg></div>
+              <h3>Landing page bán hàng</h3>
+              <p>Trang đích gọn và tập trung cho chiến dịch quảng cáo, ra mắt sản phẩm — hướng khách đến một hành động duy nhất.</p>
+            </article>
+            <article class="svc">
+              <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.1 4.9L19.5 9l-4 3.7 1.1 5.3L12 15.4 7.4 18 8.5 12.7 4.5 9l5.4-1.1Z"/></svg></div>
+              <h3>Nhận diện thương hiệu</h3>
+              <p>Logo, bảng màu và kiểu chữ đồng nhất, giúp khách nhớ đến bạn giữa nhiều đối thủ trông giống nhau.</p>
+            </article>
+            <article class="svc">
+              <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+              <h3>Thiết kế giao diện UI / UX</h3>
+              <p>Giao diện ứng dụng và web-app dễ dùng, có bản mẫu bấm thử được để bạn duyệt trước khi lập trình.</p>
+            </article>
+            <article class="svc">
+              <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg></div>
+              <h3>SEO &amp; nội dung</h3>
+              <p>Tối ưu kỹ thuật và nội dung để website được tìm thấy trên Google đúng từ khóa khách hàng đang tìm.</p>
+            </article>
+            <article class="svc">
+              <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.3"/><path d="M21 3v6h-6"/></svg></div>
+              <h3>Chăm sóc website</h3>
+              <p>Cập nhật nội dung, sao lưu và bảo mật định kỳ — website luôn hoạt động ổn định sau ngày bàn giao.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- WORK -->
+      <section id="du-an">
+        <div class="wrap">
+          <div class="sec-head">
+            <div class="sec-label">Dự án mẫu</div>
+            <h2>Một số kiểu dự án theo ngành</h2>
+            <p>Các mẫu giao diện minh họa dưới đây cho thấy cách studio trình bày theo từng ngành nghề khác nhau.</p>
+          </div>
+          <div class="work-grid">
+            <article class="work">
+              <div class="thumb" style="background:#faf0e4">
+                <div class="t-logo" style="color:#a85a1e">PHỞ NGON 24</div>
+                <div class="t-h" style="color:#33241a">Hương vị Hà Nội<br />giữa lòng Sài Gòn</div>
+                <span class="t-btn" style="background:#c2571b">Đặt bàn ngay</span>
+              </div>
+              <div class="meta">
+                <div class="cat">Website · Ẩm thực</div>
+                <h3>Website nhà hàng &amp; đặt bàn</h3>
+                <p>Thực đơn dễ xem, đặt bàn trực tuyến và chỉ đường rõ ràng cho khách mới.</p>
+              </div>
+            </article>
+            <article class="work">
+              <div class="thumb" style="background:#e9f1fa">
+                <div class="t-logo" style="color:#1d5fae">LANDVIEW</div>
+                <div class="t-h" style="color:#1c2b3a">Căn hộ view sông<br />chỉ từ 1,8 tỷ</div>
+                <span class="t-btn" style="background:#1d5fae">Nhận bảng giá</span>
+              </div>
+              <div class="meta">
+                <div class="cat">Landing page · Bất động sản</div>
+                <h3>Landing page dự án căn hộ</h3>
+                <p>Một trang, một mục tiêu: giới thiệu dự án và thu thông tin khách quan tâm.</p>
+              </div>
+            </article>
+            <article class="work">
+              <div class="thumb" style="background:#20312a">
+                <div class="t-logo" style="color:#8fd0a8">KÀFÊ ·</div>
+                <div class="t-h" style="color:#eef3ee">Cà phê rang xay<br />tại quán mỗi sáng</div>
+                <span class="t-btn" style="background:#4c7a5f">Xem thực đơn</span>
+              </div>
+              <div class="meta">
+                <div class="cat">Thương hiệu · F&amp;B</div>
+                <h3>Nhận diện quán cà phê</h3>
+                <p>Logo, thực đơn và biển hiệu cùng một phong cách, dễ nhận ra từ xa.</p>
+              </div>
+            </article>
+            <article class="work">
+              <div class="thumb" style="background:#faecf2">
+                <div class="t-logo" style="color:#b23a6d">MÂY STORE</div>
+                <div class="t-h" style="color:#38222c">Bộ sưu tập mùa thu<br />mới về</div>
+                <span class="t-btn" style="background:#b23a6d">Mua sắm ngay</span>
+              </div>
+              <div class="meta">
+                <div class="cat">Website · Thời trang</div>
+                <h3>Shop thời trang online</h3>
+                <p>Gian hàng gọn gàng, tìm size và màu nhanh, đặt hàng thuận tiện trên điện thoại.</p>
+              </div>
+            </article>
+            <article class="work">
+              <div class="thumb" style="background:#e7f4f0">
+                <div class="t-logo" style="color:#0d7a5f">AN TÂM CLINIC</div>
+                <div class="t-h" style="color:#1d2f2a">Đặt lịch khám<br />trong 1 phút</div>
+                <span class="t-btn" style="background:#0d7a5f">Đặt lịch khám</span>
+              </div>
+              <div class="meta">
+                <div class="cat">Website · Y tế</div>
+                <h3>Website phòng khám</h3>
+                <p>Thông tin bác sĩ rõ ràng, đặt lịch theo giờ trống, giảm cuộc gọi hỏi đáp lặp lại.</p>
+              </div>
+            </article>
+            <article class="work">
+              <div class="thumb" style="background:#f8f1dc">
+                <div class="t-logo" style="color:#a5760a">ENGLISH PRO</div>
+                <div class="t-h" style="color:#332b18">Lộ trình IELTS 7.0+<br />sau 6 tháng</div>
+                <span class="t-btn" style="background:#a5760a">Đăng ký test thử</span>
+              </div>
+              <div class="meta">
+                <div class="cat">Landing page · Giáo dục</div>
+                <h3>Landing page khóa học</h3>
+                <p>Lộ trình học, cam kết đầu ra và biểu mẫu đăng ký kiểm tra trình độ miễn phí.</p>
+              </div>
+            </article>
+          </div>
+          <p class="work-note">Đây là các mẫu minh họa theo ngành. Dự án của bạn sẽ dùng nội dung và hình ảnh thương hiệu riêng.</p>
+        </div>
+      </section>
+
+      <!-- PROCESS -->
+      <section id="quy-trinh" class="soft">
+        <div class="wrap">
+          <div class="sec-head">
+            <div class="sec-label">Quy trình</div>
+            <h2>Làm việc theo bốn bước rõ ràng</h2>
+            <p>Bạn luôn biết dự án đang ở bước nào và cần duyệt những gì.</p>
+          </div>
+          <div class="steps">
+            <div class="step">
+              <div class="n">Bước 01</div>
+              <h3>Trao đổi nhu cầu</h3>
+              <p>Nói chuyện ngắn về ngành nghề, khách hàng và phong cách mong muốn. Studio gửi báo giá chi tiết.</p>
+            </div>
+            <div class="step">
+              <div class="n">Bước 02</div>
+              <h3>Thiết kế giao diện</h3>
+              <p>Lên thiết kế cho các trang chính để bạn xem và góp ý, chỉnh sửa đến khi hài lòng.</p>
+            </div>
+            <div class="step">
+              <div class="n">Bước 03</div>
+              <h3>Dựng website</h3>
+              <p>Hoàn thiện website chạy thật trên tên miền của bạn, hiển thị tốt trên điện thoại và máy tính.</p>
+            </div>
+            <div class="step">
+              <div class="n">Bước 04</div>
+              <h3>Bàn giao &amp; hỗ trợ</h3>
+              <p>Hướng dẫn quản trị tận tay, bàn giao đầy đủ tài khoản và tiếp tục hỗ trợ sau khi lên sóng.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRICING -->
+      <section id="bang-gia">
+        <div class="wrap">
+          <div class="sec-head">
+            <div class="sec-label">Gói dịch vụ</div>
+            <h2>Ba gói dịch vụ phổ biến</h2>
+            <p>Mỗi dự án có nhu cầu khác nhau, nên studio báo giá theo đúng việc bạn cần — hãy liên hệ để nhận báo giá chi tiết.</p>
+          </div>
+          <div class="price-grid">
+            <div class="plan">
+              <div class="for">Khởi đầu nhanh</div>
+              <h3>Landing Page</h3>
+              <p class="desc">Cho chiến dịch quảng cáo hoặc ra mắt sản phẩm, thu khách hàng tiềm năng.</p>
+              <p class="amount"><b>Báo giá theo nhu cầu</b></p>
+              <ul>
+                <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>1 trang đích thiết kế riêng</li>
+                <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Biểu mẫu đăng ký, nút Zalo / gọi điện</li>
+                <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Hiển thị tốt trên điện thoại</li>
+              </ul>
+              <a class="btn btn-outline" href="#lien-he">Chọn gói này</a>
+            </div>
+            <div class="plan hot">
+              <div class="for">Đầy đủ &amp; cân đối</div>
+              <h3>Website Doanh Nghiệp</h3>
+              <p class="desc">Cho công ty, cửa hàng và dịch vụ cần một website chính thức, đầy đủ.</p>
+              <p class="amount"><b>Báo giá theo nhu cầu</b></p>
+              <ul>
+                <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>5–10 trang theo thương hiệu</li>
+                <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Trang quản trị tự sửa nội dung</li>
+                <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>SEO kỹ thuật cơ bản, bản đồ Google</li>
+              </ul>
+              <a class="btn btn-primary" href="#lien-he">Chọn gói này</a>
+            </div>
+            <div class="plan">
+              <div class="for">Bán hàng online</div>
+              <h3>Website Bán Hàng</h3>
+              <p class="desc">Cho shop và thương hiệu bán online cần giỏ hàng và thanh toán đầy đủ.</p>
+              <p class="amount"><b>Báo giá theo nhu cầu</b></p>
+              <ul>
+                <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Gian hàng, giỏ hàng, mã giảm giá</li>
+                <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Thanh toán chuyển khoản / ví điện tử</li>
+                <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Quản lý đơn hàng và tồn kho</li>
+              </ul>
+              <a class="btn btn-outline" href="#lien-he">Chọn gói này</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="soft">
+        <div class="wrap">
+          <div class="sec-head">
+            <div class="sec-label">Hỏi đáp</div>
+            <h2>Câu hỏi thường gặp</h2>
+          </div>
+          <div class="faq-list">
+            <div class="faq-item">
+              <h3>Tôi đã có tên miền riêng, có dùng được không?</h3>
+              <p>Được. Khi triển khai, website sẽ được trỏ về đúng tên miền của bạn và cài đặt chứng chỉ bảo mật HTTPS trong bước đưa website lên mạng.</p>
+            </div>
+            <div class="faq-item">
+              <h3>Làm một website mất bao lâu?</h3>
+              <p>Tuỳ thuộc quy mô và số lượng trang của từng dự án. Studio sẽ chốt lịch thực hiện cụ thể cùng lúc với báo giá, trước khi bắt đầu.</p>
+            </div>
+            <div class="faq-item">
+              <h3>Sau bàn giao tôi có tự sửa nội dung được không?</h3>
+              <p>Được. Website có trang quản trị tiếng Việt dễ dùng và studio hướng dẫn trực tiếp một buổi khi bàn giao.</p>
+            </div>
+            <div class="faq-item">
+              <h3>Thanh toán như thế nào?</h3>
+              <p>Điều khoản thanh toán được trao đổi và ghi rõ trong thỏa thuận trước khi bắt đầu, để cả hai bên cùng nắm rõ từ đầu.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="lien-he">
+        <div class="wrap">
+          <div class="contact-grid">
+            <div class="contact-info">
+              <div class="sec-label">Liên hệ</div>
+              <h2>Kể cho studio nghe về dự án của bạn</h2>
+              <p>Chỉ cần vài dòng mô tả ngắn: bạn kinh doanh gì và đang cần loại website nào. Biểu mẫu bên cạnh sẽ soạn sẵn nội dung tóm tắt để bạn gửi cho studio.</p>
+              <div class="contact-row">
+                <span>Email liên hệ</span>
+                <b>Đang cập nhật</b>
+              </div>
+              <div class="contact-row">
+                <span>Tên miền</span>
+                <b>vtdigital.sbs</b>
+              </div>
+            </div>
+            <form class="brief" id="briefForm">
+              <label>Họ tên *
+                <input type="text" id="bfName" required autocomplete="name" placeholder="Ví dụ: Nguyễn Văn A" />
+              </label>
+              <label>Số điện thoại / Zalo *
+                <input type="tel" id="bfPhone" required autocomplete="tel" placeholder="Số điện thoại của bạn" />
+              </label>
+              <label>Loại dự án
+                <select id="bfType">
+                  <option>Landing page</option>
+                  <option selected>Website doanh nghiệp</option>
+                  <option>Website bán hàng</option>
+                  <option>Nhận diện thương hiệu</option>
+                  <option>Khác</option>
+                </select>
+              </label>
+              <label>Mô tả ngắn
+                <textarea id="bfMsg" rows="4" placeholder="Bạn kinh doanh gì, website cần những trang hay tính năng nào…"></textarea>
+              </label>
+              <button type="submit" class="btn btn-primary">Tạo nội dung liên hệ</button>
+              <div class="brief-out" id="briefOut" hidden>
+                <pre id="briefText"></pre>
+                <button type="button" class="btn btn-outline btn-sm" id="copyBtn">Sao chép nội dung</button>
+                <p class="brief-ok" id="briefOk">Nội dung đã sẵn sàng — bạn sao chép và gửi cho studio qua kênh liên hệ quen thuộc của mình.</p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <div class="foot-grid">
+          <div style="max-width:280px">
+            <a class="brand" href="#top">
+              <span class="mark">VT<em>.</em></span>
+              <span>Vtdigital Studio</span>
+            </a>
+            <p style="margin:12px 0 0;color:var(--muted);font-size:14.5px">Studio thiết kế website, landing page và thương hiệu số cho doanh nghiệp Việt.</p>
+          </div>
+          <div class="foot-col">
+            <h4>Điều hướng</h4>
+            <a href="#dich-vu">Dịch vụ</a>
+            <a href="#du-an">Dự án mẫu</a>
+            <a href="#quy-trinh">Quy trình</a>
+            <a href="#bang-gia">Gói dịch vụ</a>
+          </div>
+          <div class="foot-col">
+            <h4>Liên hệ</h4>
+            <a href="#lien-he">Gửi yêu cầu dự án</a>
+            <a href="#top">vtdigital.sbs</a>
+          </div>
+        </div>
+        <div class="foot-base">
+          <span>© 2026 <b>Vtdigital Studio</b></span>
+          <span>vtdigital.sbs</span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu
+      var menuBtn = document.getElementById('menuBtn');
+      var mobileMenu = document.getElementById('mobileMenu');
+      menuBtn.addEventListener('click', function () {
+        var open = mobileMenu.classList.toggle('open');
+        menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      mobileMenu.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () { mobileMenu.classList.remove('open'); });
+      });
+
+      // Brief form -> composes a ready-to-send summary the visitor can copy
+      var briefOut = document.getElementById('briefOut');
+      var briefText = document.getElementById('briefText');
+      var copyBtn = document.getElementById('copyBtn');
+      document.getElementById('briefForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var name = document.getElementById('bfName').value.trim();
+        var phone = document.getElementById('bfPhone').value.trim();
+        var type = document.getElementById('bfType').value;
+        var msg = document.getElementById('bfMsg').value.trim();
+        briefText.textContent = 'Xin chào Vtdigital Studio,\n\n'
+          + 'Tên: ' + name + '\n'
+          + 'Điện thoại/Zalo: ' + phone + '\n'
+          + 'Loại dự án: ' + type + '\n\n'
+          + 'Mô tả dự án:\n' + (msg || '(chưa mô tả)');
+        copyBtn.textContent = 'Sao chép nội dung';
+        briefOut.hidden = false;
+        briefOut.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      });
+      copyBtn.addEventListener('click', function () {
+        var done = function () { copyBtn.textContent = 'Đã sao chép ✓'; };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(briefText.textContent).then(done, function () { fallbackCopy(done); });
+        } else { fallbackCopy(done); }
+      });
+      function fallbackCopy(done) {
+        var range = document.createRange();
+        range.selectNodeContents(briefText);
+        var sel = window.getSelection();
+        sel.removeAllRanges(); sel.addRange(range);
+        try { document.execCommand('copy'); done(); } catch (err) { /* selection stays for manual copy */ }
+        sel.removeAllRanges();
+      }
+    </script>
+  </body>
+</html>
