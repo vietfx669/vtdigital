@@ -1,638 +1,385 @@
 <!doctype html>
 <html lang="vi">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="color-scheme" content="light dark" />
-    <meta name="description" content="Vtdigital Studio — thiết kế website, landing page và nhận diện thương hiệu tại vtdigital.sbs" />
-    <link rel="icon" href="data:," />
-    <title>Vtdigital Studio — vtdigital.sbs</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <style>
-      :root{
-        --bg:#ffffff;
-        --bg-soft:#f6f7f8;
-        --surface:#ffffff;
-        --ink:#16191d;
-        --ink-2:#454e59;
-        --muted:#717b88;
-        --line:#e3e6ea;
-        --accent:#e8490f;
-        --accent-soft:#fdf0ea;
-        --ok:#0d7a4a;
-        --radius:12px;
-      }
-      @media (prefers-color-scheme: dark){
-        :root{
-          --bg:#121417;
-          --bg-soft:#17191d;
-          --surface:#1a1d21;
-          --ink:#f0f1f2;
-          --ink-2:#c3c9d1;
-          --muted:#8f98a3;
-          --line:#2b2f36;
-          --accent:#ff7a3d;
-          --accent-soft:#2c1c13;
-          --ok:#3ecf8e;
-        }
-      }
-      *{box-sizing:border-box}
-      html{scroll-behavior:smooth}
-      body{
-        margin:0;background:var(--bg);color:var(--ink);
-        font-family:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
-        font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;
-      }
-      a{color:inherit}
-      .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
-      @media(min-width:768px){.wrap{padding:0 28px}}
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>VT Digital — Công nghệ, tài chính số & sáng tạo nội dung</title>
+<meta name="description" content="VT Digital: thiết kế website và thương hiệu, góc nhìn Phố Wall và crypto, chia sẻ kinh nghiệm giao dịch và phát triển kênh YouTube. Liên hệ admin@vtdigital.sbs.">
+<link rel="canonical" href="https://vtdigital.sbs/">
+<style>
+:root{color-scheme:dark;
+--bg:#101114;
+--panel:#191b20;
+--line:#303238;
+--text:#f5f3ef;
+--muted:#b0b0b7;
+--orange:#ff844f}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;
+scroll-padding-top:105px}
+body{margin:0;
+background:var(--bg);
+color:var(--text);
+font:16px/1.7 system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:inherit;
+text-underline-offset:5px}
+button,input,select,textarea{font:inherit}
+a,button,input,select,textarea{outline-offset:5px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--orange)}
+.wrap{width:min(1160px,calc(100% - 48px));
+margin:auto}
+.skip{position:absolute;
+left:20px;
+top:-100px;
+background:var(--orange);
+color:#17110e;
+padding:10px;
+z-index:100}
+.skip:focus{top:10px}
+header{position:sticky;
+top:0;
+background:#101114f5;
+border-bottom:1px solid var(--line);
+z-index:10}
+.nav{display:flex;
+align-items:center;
+gap:32px;
+min-height:80px}
+.brand{display:flex;
+align-items:center;
+gap:12px;
+text-decoration:none;
+font-size:21px;
+font-weight:800;
+letter-spacing:-1px}
+.mark{background:var(--orange);
+color:#17110e;
+padding:4px 8px;
+border-radius:9px;
+font-size:18px;
+letter-spacing:-1px}
+.nav nav{display:flex;
+gap:26px;
+margin-left:auto}
+.nav nav a{font-size:14px;
+text-decoration:none;
+color:var(--muted)}
+.nav nav a:hover,footer a:hover{color:var(--orange)}
+.menu{display:none;
+border:1px solid var(--line);
+color:var(--text);
+background:var(--panel);
+padding:7px 12px;
+border-radius:8px}
+.btn{display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:12px 21px;
+border:1px solid var(--line);
+border-radius:9px;
+text-decoration:none;
+font-weight:650;
+font-size:14px;
+background:var(--panel);
+cursor:pointer;
+color:var(--text)}
+.btn.primary{background:var(--orange);
+border-color:var(--orange);
+color:#21140e}
+.btn:hover{filter:brightness(1.12)}
+.eyebrow{font-size:12px;
+letter-spacing:2px;
+font-weight:700;
+text-transform:uppercase;
+color:var(--orange)}
+.hero{padding:76px 0 48px}
+.hero-grid{display:grid;
+grid-template-columns:1.2fr 1fr;
+align-items:center;
+gap:70px}
+h1{font-size:clamp(38px,4.5vw,62px);
+line-height:1.13;
+letter-spacing:-2.3px;
+margin:20px 0 24px;
+font-weight:750}
+h1 em{color:var(--orange);
+font-style:normal}
+.lead{font-size:17px;
+color:var(--muted);
+max-width:580px}
+.actions{display:flex;
+gap:12px;
+flex-wrap:wrap;
+margin-top:28px}
+.hero-note{font-size:12px;
+color:var(--muted);
+margin-top:22px}
+.visual{padding:28px;
+background:linear-gradient(145deg,#29221e,#17191e 60%);
+border:1px solid #49392e;
+border-radius:20px;
+position:relative}
+.visual-top{display:flex;
+justify-content:space-between;
+color:var(--muted);
+font-size:11px;
+letter-spacing:2px;
+border-bottom:1px solid var(--line);
+padding-bottom:20px}
+.orbit{font-size:80px;
+line-height:1;
+text-align:center;
+letter-spacing:-7px;
+font-weight:850;
+padding:30px 0;
+color:var(--text)}
+.orbit span{color:var(--orange)}
+.visual-row{display:flex;
+justify-content:space-between;
+padding:14px 0;
+border-top:1px solid var(--line);
+font-size:14px}
+.visual-row span{color:var(--orange)}
+.pillars{display:grid;
+grid-template-columns:repeat(3,1fr);
+margin-top:60px;
+border-top:1px solid var(--line);
+border-bottom:1px solid var(--line)}
+.pillar{padding:25px 25px 25px 0;
+text-decoration:none}
+.pillar:not(:first-child){border-left:1px solid var(--line);
+padding-left:28px}
+.pillar small{color:var(--orange);
+font-weight:700}
+.pillar h2{font-size:19px;
+margin:5px 0}
+.pillar p{font-size:13px;
+color:var(--muted);
+margin:0}
+section{padding:76px 0;
+border-bottom:1px solid var(--line)}
+.section-head{display:flex;
+justify-content:space-between;
+align-items:end;
+gap:32px;
+margin-bottom:32px}
+.section-head p{color:var(--muted);
+max-width:430px;
+margin:0;
+font-size:15px}
+h2{font-size:clamp(26px,3vw,38px);
+line-height:1.25;
+letter-spacing:-1px;
+margin:12px 0}
+h3{font-size:19px;
+line-height:1.4;
+margin:15px 0 10px}
+.grid{display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px}
+.card{border:1px solid var(--line);
+background:var(--panel);
+padding:28px;
+border-radius:12px}
+.card p{color:var(--muted);
+font-size:14px;
+margin:0}
+.number{font-size:12px;
+color:var(--orange);
+font-weight:700}
+.card a.more{display:inline-block;
+color:var(--orange);
+margin-top:20px;
+font-size:14px}
+.service-list{display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:0 40px}
+.service{padding:22px 0;
+border-top:1px solid var(--line)}
+.service h3{margin:0 0 8px}
+.service p{color:var(--muted);
+font-size:14px;
+margin:0}
+.soft{background:#14161a}
+.notice{border-left:2px solid var(--orange);
+padding-left:18px;
+margin-top:24px;
+color:var(--muted);
+font-size:13px}
+.youtube{display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center}
+.video-art{aspect-ratio:16/10;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+border:1px solid #55402f;
+border-radius:16px;
+background:radial-gradient(ellipse at center,#3c2820,#191b20 70%)}
+.play{width:80px;
+height:58px;
+border-radius:17px;
+background:var(--orange);
+display:grid;
+place-items:center;
+color:#25150d;
+font-size:30px}
+.video-art p{font-size:12px;
+letter-spacing:3px;
+color:var(--muted);
+margin-top:24px}
+.checks{list-style:none;
+padding:0;
+color:var(--muted);
+font-size:15px}
+.checks li{padding:9px 0;
+border-bottom:1px solid var(--line)}
+.checks li::before{content:'↗';
+color:var(--orange);
+margin-right:12px}
+.sample{min-height:140px;
+border-radius:8px;
+padding:22px;
+background:#25362e;
+color:#e4efdd;
+font-size:22px;
+line-height:1.3;
+font-weight:750}
+.sample.two{background:#332c43;
+color:#eee2ff}
+.sample.three{background:#3b2b21;
+color:#ffe5c4}
+.sample small{display:block;
+font-size:10px;
+letter-spacing:2px;
+margin-bottom:16px}
+.tag{display:inline-block;
+font-size:11px;
+color:var(--orange);
+margin-top:18px}
+.steps{display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:28px}
+.steps p{color:var(--muted);
+font-size:14px}
+.contact{display:grid;
+grid-template-columns:1fr 1fr;
+gap:70px}
+.email{display:inline-block;
+font-size:clamp(19px,2.5vw,29px);
+color:var(--orange);
+margin:12px 0;
+word-break:break-word}
+.contact p{color:var(--muted)}
+form{display:grid;
+gap:16px}
+label{font-size:13px;
+font-weight:650}
+input,select,textarea{display:block;
+width:100%;
+padding:12px;
+margin-top:7px;
+border:1px solid var(--line);
+border-radius:8px;
+background:var(--panel);
+color:var(--text)}
+textarea{resize:vertical;
+min-height:110px}
+.form-note{font-size:12px!important;
+margin:0}
+.status{font-size:13px;
+color:var(--orange)!important}
+footer{padding:38px 0}
+.foot{display:flex;
+justify-content:space-between;
+gap:28px;
+flex-wrap:wrap}
+footer p{color:var(--muted);
+font-size:12px;
+max-width:460px}
+footer a{font-size:13px}
+.foot-links{display:flex;
+gap:20px;
+flex-wrap:wrap;
+align-items:start}
+.bottom{margin-top:28px;
+padding-top:20px;
+border-top:1px solid var(--line);
+color:var(--muted);
+font-size:12px}
+details{border-top:1px solid var(--line);
+padding:17px 0}
+summary{cursor:pointer;
+font-weight:650}
+details p{color:var(--muted);
+font-size:14px}
+ @media(max-width:950px){.nav{gap:18px}
+.nav nav{gap:15px}
+.nav>.btn{display:none}
+.hero-grid{gap:30px}
+h1{letter-spacing:-1.5px}
+.grid{gap:12px}
+.card{padding:22px}
+}
+@media(max-width:700px){.wrap{width:calc(100% - 36px)}
+.nav{min-height:68px;
+flex-wrap:wrap;
+gap:0;
+justify-content:space-between}
+.menu{display:block}
+.nav nav{display:none;
+width:100%;
+margin:0;
+padding:12px 0 20px;
+flex-direction:column;
+gap:16px}
+.nav nav.open{display:flex}
+.hero{padding:45px 0 25px}
+.hero-grid,.youtube,.contact{grid-template-columns:1fr;
+gap:30px}
+.visual{padding:22px}
+.orbit{font-size:64px;
+padding:22px}
+.pillars{margin-top:35px;
+grid-template-columns:1fr}
+.pillar,.pillar:not(:first-child){padding:18px 0;
+border-left:0}
+.pillar+.pillar{border-top:1px solid var(--line)}
+section{padding:48px 0}
+.section-head{display:block}
+.section-head p{margin-top:15px}
+.grid,.service-list{grid-template-columns:1fr}
+.steps{grid-template-columns:1fr 1fr;
+gap:18px}
+.video-art{aspect-ratio:16/9}
+.foot-links{gap:14px}
+.hero-note{font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}
+}
 
-      /* Header */
-      header{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
-      .nav{display:flex;align-items:center;gap:18px;height:62px}
-      .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:18px;letter-spacing:-.01em;white-space:nowrap}
-      .brand .mark{width:32px;height:32px;flex:none;display:grid;place-items:center;overflow:hidden;background:var(--ink);color:var(--bg);border-radius:8px;font-size:12.5px;font-weight:800;line-height:1}
-      .brand .mark em{font-style:normal;color:var(--accent)}
-      .nav nav{display:none;gap:26px;margin-left:8px}
-      .nav nav a{text-decoration:none;font-size:14.5px;font-weight:500;color:var(--ink-2)}
-      .nav nav a:hover{color:var(--accent)}
-      .nav .spacer{flex:1}
-      @media(min-width:860px){.nav nav{display:flex}}
-      .btn{
-        display:inline-flex;align-items:center;gap:8px;text-decoration:none;cursor:pointer;
-        font-family:inherit;font-weight:600;font-size:15px;border-radius:9px;
-        padding:11px 20px;border:1px solid transparent;background:none;color:var(--ink);
-      }
-      .btn-primary{background:var(--ink);color:var(--bg)}
-      .btn-primary:hover{background:var(--accent);color:#fff}
-      .btn-outline{border-color:var(--line);background:var(--surface)}
-      .btn-outline:hover{border-color:var(--accent);color:var(--accent)}
-      .btn-sm{padding:8px 15px;font-size:14px}
-      @media(max-width:859px){.nav .btn{display:none}}
-      .menu-btn{display:grid;place-items:center;width:38px;height:38px;border:1px solid var(--line);background:var(--surface);border-radius:9px;cursor:pointer;color:var(--ink)}
-      @media(min-width:860px){.menu-btn{display:none}}
-      .mobile-menu{display:none;border-top:1px solid var(--line);padding:6px 20px 12px}
-      .mobile-menu.open{display:block}
-      .mobile-menu a{display:block;padding:10px 0;text-decoration:none;font-weight:500;color:var(--ink-2);border-bottom:1px solid var(--line)}
-      .mobile-menu a:last-child{border-bottom:0}
-      @media(min-width:860px){.mobile-menu{display:none!important}}
-
-      /* Hero */
-      .hero{padding:64px 0 56px;text-align:center}
-      @media(min-width:860px){.hero{padding:88px 0 72px}}
-      .domain-line{
-        display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:500;color:var(--ink-2);
-        border:1px solid var(--line);border-radius:999px;padding:6px 14px;margin-bottom:26px;background:var(--surface);
-      }
-      .domain-line .dot{width:7px;height:7px;border-radius:50%;background:var(--ok)}
-      .domain-line b{color:var(--accent);font-weight:700}
-      h1{margin:0 auto 18px;max-width:16em;font-size:clamp(32px,5.4vw,50px);line-height:1.18;font-weight:800;letter-spacing:-.02em;text-wrap:balance}
-      h1 span{color:var(--accent)}
-      .hero p{margin:0 auto 30px;max-width:38em;font-size:clamp(16px,2vw,18px);color:var(--ink-2)}
-      .hero-cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
-      .hero-note{margin-top:22px;font-size:14px;color:var(--muted)}
-
-      /* Browser preview */
-      .preview{max-width:760px;margin:52px auto 0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--surface);text-align:left}
-      .preview-bar{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line);background:var(--bg-soft)}
-      .preview-bar .dots{display:flex;gap:6px}
-      .preview-bar .dots i{width:10px;height:10px;border-radius:50%;display:block}
-      .preview-bar .dots i:nth-child(1){background:#ff5f57}
-      .preview-bar .dots i:nth-child(2){background:#febc2e}
-      .preview-bar .dots i:nth-child(3){background:#28c840}
-      .urlbar{flex:1;text-align:center;font-size:13px;font-weight:600;color:var(--ink-2);background:var(--surface);border:1px solid var(--line);border-radius:7px;padding:5px 10px}
-      .urlbar b{color:var(--accent)}
-      .preview-body{padding:26px 28px 30px}
-      .preview-body .p-logo{font-weight:800;font-size:15px;margin-bottom:16px}
-      .preview-body .p-logo em{font-style:normal;color:var(--accent)}
-      .preview-body h3{margin:0 0 8px;font-size:clamp(20px,3vw,26px);font-weight:800;letter-spacing:-.015em;line-height:1.3}
-      .preview-body h3 span{color:var(--accent)}
-      .preview-body p{margin:0 0 18px;color:var(--muted);font-size:14.5px;max-width:32em}
-      .p-row{display:flex;gap:10px;flex-wrap:wrap}
-      .p-btn{font-size:13px;font-weight:600;padding:9px 16px;border-radius:8px;background:var(--accent);color:#fff}
-      .p-btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
-
-      /* Sections */
-      section{padding:60px 0}
-      @media(min-width:860px){section{padding:76px 0}}
-      .soft{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-      .sec-head{max-width:640px;margin-bottom:38px}
-      .sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
-      .sec-label{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
-      h2{margin:0 0 12px;font-size:clamp(25px,3.6vw,34px);font-weight:800;letter-spacing:-.02em;line-height:1.25;text-wrap:balance}
-      .sec-head p{margin:0;color:var(--muted);font-size:16px}
-
-      /* Services */
-      .svc-grid{display:grid;gap:16px}
-      @media(min-width:680px){.svc-grid{grid-template-columns:1fr 1fr}}
-      @media(min-width:980px){.svc-grid{grid-template-columns:repeat(3,1fr)}}
-      .svc{border:1px solid var(--line);border-radius:var(--radius);padding:24px;background:var(--surface)}
-      .svc .ic{width:40px;height:40px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;margin-bottom:16px}
-      .svc h3{margin:0 0 8px;font-size:17px;font-weight:700}
-      .svc p{margin:0;color:var(--muted);font-size:14.5px}
-
-      /* Work */
-      .work-grid{display:grid;gap:16px}
-      @media(min-width:680px){.work-grid{grid-template-columns:1fr 1fr}}
-      @media(min-width:980px){.work-grid{grid-template-columns:repeat(3,1fr)}}
-      .work{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface)}
-      .work .thumb{padding:22px 22px 18px;border-bottom:1px solid var(--line)}
-      .work .thumb .t-logo{font-size:11px;font-weight:800;letter-spacing:.06em;margin-bottom:12px}
-      .work .thumb .t-h{font-size:19px;font-weight:800;line-height:1.3;letter-spacing:-.01em;margin-bottom:14px}
-      .work .thumb .t-btn{display:inline-block;font-size:11px;font-weight:700;color:#fff;padding:6px 12px;border-radius:6px}
-      .work .meta{padding:18px 22px 20px}
-      .work .cat{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-bottom:5px}
-      .work h3{margin:0 0 6px;font-size:16.5px;font-weight:700}
-      .work p{margin:0;color:var(--muted);font-size:14px}
-      .work-note{margin-top:20px;font-size:13.5px;color:var(--muted)}
-
-      /* Process */
-      .steps{display:grid;gap:16px}
-      @media(min-width:680px){.steps{grid-template-columns:1fr 1fr}}
-      @media(min-width:980px){.steps{grid-template-columns:repeat(4,1fr)}}
-      .step{border:1px solid var(--line);border-radius:var(--radius);padding:24px;background:var(--surface)}
-      .step .n{font-size:14px;font-weight:800;color:var(--accent);margin-bottom:12px}
-      .step h3{margin:0 0 7px;font-size:16.5px;font-weight:700}
-      .step p{margin:0;color:var(--muted);font-size:14.5px}
-
-      /* Pricing */
-      .price-grid{display:grid;gap:16px}
-      @media(min-width:900px){.price-grid{grid-template-columns:repeat(3,1fr)}}
-      .plan{border:1px solid var(--line);border-radius:var(--radius);padding:28px;background:var(--surface);display:flex;flex-direction:column}
-      .plan.hot{border-color:var(--ink);border-width:1.5px}
-      .plan .for{font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
-      .plan h3{margin:0 0 6px;font-size:19px;font-weight:800}
-      .plan .desc{margin:0 0 18px;color:var(--muted);font-size:14.5px}
-      .plan .amount{margin:0 0 20px}
-      .plan .amount b{display:block;font-size:19px;color:var(--accent);font-weight:700;line-height:1.3}
-      .plan ul{list-style:none;margin:0 0 24px;padding:18px 0 0;border-top:1px solid var(--line);display:grid;gap:10px;flex:1}
-      .plan li{display:flex;gap:9px;font-size:14.5px;color:var(--ink-2);align-items:flex-start}
-      .plan li svg{flex:none;margin-top:4px;color:var(--ok)}
-      .plan .btn{justify-content:center}
-
-      /* FAQ */
-      .faq-list{max-width:760px}
-      .faq-item{padding:20px 0;border-bottom:1px solid var(--line)}
-      .faq-item:first-child{padding-top:4px}
-      .faq-item h3{margin:0 0 6px;font-size:16.5px;font-weight:700}
-      .faq-item p{margin:0;color:var(--muted);font-size:15px;max-width:44em}
-
-      /* Contact */
-      .contact-grid{display:grid;gap:36px}
-      @media(min-width:900px){.contact-grid{grid-template-columns:1fr 1fr;gap:56px;align-items:start}}
-      .contact-info p{color:var(--muted);margin:0 0 22px;max-width:30em}
-      .contact-row{display:flex;flex-direction:column;gap:4px;padding:14px 0;border-top:1px solid var(--line)}
-      .contact-row span{font-size:13px;color:var(--muted)}
-      .contact-row a,.contact-row b{font-size:16.5px;font-weight:600;text-decoration:none;font-style:normal}
-      .contact-row a:hover{color:var(--accent)}
-      .brief{display:grid;gap:12px}
-      .brief label{font-size:14px;font-weight:600;display:block}
-      .brief input,.brief select,.brief textarea{
-        width:100%;margin-top:6px;font-family:inherit;font-size:15px;font-weight:400;
-        padding:11px 13px;border-radius:9px;border:1px solid var(--line);
-        background:var(--surface);color:var(--ink);
-      }
-      .brief .btn{justify-self:start;margin-top:4px}
-      .brief-out{border:1px solid var(--line);border-radius:10px;padding:16px;background:var(--bg-soft)}
-      .brief-out pre{margin:0 0 12px;font-family:inherit;font-size:14px;line-height:1.6;white-space:pre-wrap;word-break:break-word;color:var(--ink-2)}
-      .brief-out .btn{margin:0 0 10px}
-      .brief-ok{font-size:14px;color:var(--ok);font-weight:500;margin:0}
-
-      /* Footer */
-      footer{border-top:1px solid var(--line);padding:44px 0 30px;background:var(--bg-soft)}
-      .foot-grid{display:flex;flex-wrap:wrap;gap:28px 48px;justify-content:space-between;margin-bottom:34px}
-      .foot-col h4{margin:0 0 12px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700}
-      .foot-col a{display:block;text-decoration:none;color:var(--ink-2);font-size:14.5px;padding:3px 0}
-      .foot-col a:hover{color:var(--accent)}
-      .foot-base{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;border-top:1px solid var(--line);padding-top:20px;font-size:13.5px;color:var(--muted)}
-      .foot-base b{color:var(--ink-2)}
-    </style>
-  </head>
-  <body>
-    <header>
-      <div class="wrap nav">
-        <a class="brand" href="#top">
-          <span class="mark">VT<em>.</em></span>
-          <span>Vtdigital Studio</span>
-        </a>
-        <nav aria-label="Điều hướng chính">
-          <a href="#dich-vu">Dịch vụ</a>
-          <a href="#du-an">Dự án mẫu</a>
-          <a href="#quy-trinh">Quy trình</a>
-          <a href="#bang-gia">Gói dịch vụ</a>
-          <a href="#lien-he">Liên hệ</a>
-        </nav>
-        <span class="spacer"></span>
-        <a class="btn btn-primary btn-sm" href="#lien-he">Bắt đầu dự án</a>
-        <button class="menu-btn" id="menuBtn" aria-label="Mở menu" aria-expanded="false">
-          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-        </button>
-      </div>
-      <div class="mobile-menu" id="mobileMenu">
-        <a href="#dich-vu">Dịch vụ</a>
-        <a href="#du-an">Dự án mẫu</a>
-        <a href="#quy-trinh">Quy trình</a>
-        <a href="#bang-gia">Gói dịch vụ</a>
-        <a href="#lien-he">Liên hệ</a>
-      </div>
-    </header>
-
-    <main id="top">
-      <!-- HERO -->
-      <div class="hero">
-        <div class="wrap">
-          <span class="domain-line">Tên miền của studio:&nbsp;<b>vtdigital.sbs</b></span>
-          <h1>Vtdigital Studio — thiết kế website <span>gọn gàng, dễ dùng</span> cho doanh nghiệp</h1>
-          <p>Chúng tôi làm website giới thiệu, landing page và nhận diện thương hiệu với bố cục sạch, nội dung rõ ràng — để khách hàng tin tưởng và liên hệ với bạn dễ dàng hơn.</p>
-          <div class="hero-cta">
-            <a class="btn btn-primary" href="#lien-he">Nhận tư vấn miễn phí</a>
-            <a class="btn btn-outline" href="#du-an">Xem dự án mẫu</a>
-          </div>
-          <p class="hero-note">Thiết kế riêng theo thương hiệu · Chuẩn điện thoại · Bàn giao kèm hướng dẫn sử dụng</p>
-
-          <div class="preview" role="img" aria-label="Xem trước giao diện website Vtdigital Studio với địa chỉ vtdigital.sbs">
-            <div class="preview-bar">
-              <span class="dots"><i></i><i></i><i></i></span>
-              <span class="urlbar">vtdigital<b>.sbs</b></span>
-              <span style="width:42px"></span>
-            </div>
-            <div class="preview-body">
-              <div class="p-logo">VT<em>digital</em> Studio</div>
-              <h3>Website đẹp, rõ ràng,<br />kể đúng câu chuyện <span>của bạn.</span></h3>
-              <p>Trang chủ, giới thiệu, dịch vụ và liên hệ — đầy đủ những gì khách hàng cần, trình bày dễ đọc trên mọi thiết bị.</p>
-              <div class="p-row">
-                <span class="p-btn">Xem dịch vụ</span>
-                <span class="p-btn ghost">Liên hệ</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- SERVICES -->
-      <section id="dich-vu" class="soft">
-        <div class="wrap">
-          <div class="sec-head">
-            <div class="sec-label">Dịch vụ</div>
-            <h2>Những gì studio có thể làm cho bạn</h2>
-            <p>Sáu dịch vụ cốt lõi, làm trọn gói từ ý tưởng đến khi website lên sóng.</p>
-          </div>
-          <div class="svc-grid">
-            <article class="svc">
-              <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3Z"/></svg></div>
-              <h3>Thiết kế website doanh nghiệp</h3>
-              <p>Website giới thiệu công ty và dịch vụ, cấu trúc rõ ràng, tải nhanh, dễ quản trị và mở rộng về sau.</p>
-            </article>
-            <article class="svc">
-              <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 21h8"/></svg></div>
-              <h3>Landing page bán hàng</h3>
-              <p>Trang đích gọn và tập trung cho chiến dịch quảng cáo, ra mắt sản phẩm — hướng khách đến một hành động duy nhất.</p>
-            </article>
-            <article class="svc">
-              <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.1 4.9L19.5 9l-4 3.7 1.1 5.3L12 15.4 7.4 18 8.5 12.7 4.5 9l5.4-1.1Z"/></svg></div>
-              <h3>Nhận diện thương hiệu</h3>
-              <p>Logo, bảng màu và kiểu chữ đồng nhất, giúp khách nhớ đến bạn giữa nhiều đối thủ trông giống nhau.</p>
-            </article>
-            <article class="svc">
-              <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
-              <h3>Thiết kế giao diện UI / UX</h3>
-              <p>Giao diện ứng dụng và web-app dễ dùng, có bản mẫu bấm thử được để bạn duyệt trước khi lập trình.</p>
-            </article>
-            <article class="svc">
-              <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg></div>
-              <h3>SEO &amp; nội dung</h3>
-              <p>Tối ưu kỹ thuật và nội dung để website được tìm thấy trên Google đúng từ khóa khách hàng đang tìm.</p>
-            </article>
-            <article class="svc">
-              <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.3"/><path d="M21 3v6h-6"/></svg></div>
-              <h3>Chăm sóc website</h3>
-              <p>Cập nhật nội dung, sao lưu và bảo mật định kỳ — website luôn hoạt động ổn định sau ngày bàn giao.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- WORK -->
-      <section id="du-an">
-        <div class="wrap">
-          <div class="sec-head">
-            <div class="sec-label">Dự án mẫu</div>
-            <h2>Một số kiểu dự án theo ngành</h2>
-            <p>Các mẫu giao diện minh họa dưới đây cho thấy cách studio trình bày theo từng ngành nghề khác nhau.</p>
-          </div>
-          <div class="work-grid">
-            <article class="work">
-              <div class="thumb" style="background:#faf0e4">
-                <div class="t-logo" style="color:#a85a1e">PHỞ NGON 24</div>
-                <div class="t-h" style="color:#33241a">Hương vị Hà Nội<br />giữa lòng Sài Gòn</div>
-                <span class="t-btn" style="background:#c2571b">Đặt bàn ngay</span>
-              </div>
-              <div class="meta">
-                <div class="cat">Website · Ẩm thực</div>
-                <h3>Website nhà hàng &amp; đặt bàn</h3>
-                <p>Thực đơn dễ xem, đặt bàn trực tuyến và chỉ đường rõ ràng cho khách mới.</p>
-              </div>
-            </article>
-            <article class="work">
-              <div class="thumb" style="background:#e9f1fa">
-                <div class="t-logo" style="color:#1d5fae">LANDVIEW</div>
-                <div class="t-h" style="color:#1c2b3a">Căn hộ view sông<br />chỉ từ 1,8 tỷ</div>
-                <span class="t-btn" style="background:#1d5fae">Nhận bảng giá</span>
-              </div>
-              <div class="meta">
-                <div class="cat">Landing page · Bất động sản</div>
-                <h3>Landing page dự án căn hộ</h3>
-                <p>Một trang, một mục tiêu: giới thiệu dự án và thu thông tin khách quan tâm.</p>
-              </div>
-            </article>
-            <article class="work">
-              <div class="thumb" style="background:#20312a">
-                <div class="t-logo" style="color:#8fd0a8">KÀFÊ ·</div>
-                <div class="t-h" style="color:#eef3ee">Cà phê rang xay<br />tại quán mỗi sáng</div>
-                <span class="t-btn" style="background:#4c7a5f">Xem thực đơn</span>
-              </div>
-              <div class="meta">
-                <div class="cat">Thương hiệu · F&amp;B</div>
-                <h3>Nhận diện quán cà phê</h3>
-                <p>Logo, thực đơn và biển hiệu cùng một phong cách, dễ nhận ra từ xa.</p>
-              </div>
-            </article>
-            <article class="work">
-              <div class="thumb" style="background:#faecf2">
-                <div class="t-logo" style="color:#b23a6d">MÂY STORE</div>
-                <div class="t-h" style="color:#38222c">Bộ sưu tập mùa thu<br />mới về</div>
-                <span class="t-btn" style="background:#b23a6d">Mua sắm ngay</span>
-              </div>
-              <div class="meta">
-                <div class="cat">Website · Thời trang</div>
-                <h3>Shop thời trang online</h3>
-                <p>Gian hàng gọn gàng, tìm size và màu nhanh, đặt hàng thuận tiện trên điện thoại.</p>
-              </div>
-            </article>
-            <article class="work">
-              <div class="thumb" style="background:#e7f4f0">
-                <div class="t-logo" style="color:#0d7a5f">AN TÂM CLINIC</div>
-                <div class="t-h" style="color:#1d2f2a">Đặt lịch khám<br />trong 1 phút</div>
-                <span class="t-btn" style="background:#0d7a5f">Đặt lịch khám</span>
-              </div>
-              <div class="meta">
-                <div class="cat">Website · Y tế</div>
-                <h3>Website phòng khám</h3>
-                <p>Thông tin bác sĩ rõ ràng, đặt lịch theo giờ trống, giảm cuộc gọi hỏi đáp lặp lại.</p>
-              </div>
-            </article>
-            <article class="work">
-              <div class="thumb" style="background:#f8f1dc">
-                <div class="t-logo" style="color:#a5760a">ENGLISH PRO</div>
-                <div class="t-h" style="color:#332b18">Lộ trình IELTS 7.0+<br />sau 6 tháng</div>
-                <span class="t-btn" style="background:#a5760a">Đăng ký test thử</span>
-              </div>
-              <div class="meta">
-                <div class="cat">Landing page · Giáo dục</div>
-                <h3>Landing page khóa học</h3>
-                <p>Lộ trình học, cam kết đầu ra và biểu mẫu đăng ký kiểm tra trình độ miễn phí.</p>
-              </div>
-            </article>
-          </div>
-          <p class="work-note">Đây là các mẫu minh họa theo ngành. Dự án của bạn sẽ dùng nội dung và hình ảnh thương hiệu riêng.</p>
-        </div>
-      </section>
-
-      <!-- PROCESS -->
-      <section id="quy-trinh" class="soft">
-        <div class="wrap">
-          <div class="sec-head">
-            <div class="sec-label">Quy trình</div>
-            <h2>Làm việc theo bốn bước rõ ràng</h2>
-            <p>Bạn luôn biết dự án đang ở bước nào và cần duyệt những gì.</p>
-          </div>
-          <div class="steps">
-            <div class="step">
-              <div class="n">Bước 01</div>
-              <h3>Trao đổi nhu cầu</h3>
-              <p>Nói chuyện ngắn về ngành nghề, khách hàng và phong cách mong muốn. Studio gửi báo giá chi tiết.</p>
-            </div>
-            <div class="step">
-              <div class="n">Bước 02</div>
-              <h3>Thiết kế giao diện</h3>
-              <p>Lên thiết kế cho các trang chính để bạn xem và góp ý, chỉnh sửa đến khi hài lòng.</p>
-            </div>
-            <div class="step">
-              <div class="n">Bước 03</div>
-              <h3>Dựng website</h3>
-              <p>Hoàn thiện website chạy thật trên tên miền của bạn, hiển thị tốt trên điện thoại và máy tính.</p>
-            </div>
-            <div class="step">
-              <div class="n">Bước 04</div>
-              <h3>Bàn giao &amp; hỗ trợ</h3>
-              <p>Hướng dẫn quản trị tận tay, bàn giao đầy đủ tài khoản và tiếp tục hỗ trợ sau khi lên sóng.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- PRICING -->
-      <section id="bang-gia">
-        <div class="wrap">
-          <div class="sec-head">
-            <div class="sec-label">Gói dịch vụ</div>
-            <h2>Ba gói dịch vụ phổ biến</h2>
-            <p>Mỗi dự án có nhu cầu khác nhau, nên studio báo giá theo đúng việc bạn cần — hãy liên hệ để nhận báo giá chi tiết.</p>
-          </div>
-          <div class="price-grid">
-            <div class="plan">
-              <div class="for">Khởi đầu nhanh</div>
-              <h3>Landing Page</h3>
-              <p class="desc">Cho chiến dịch quảng cáo hoặc ra mắt sản phẩm, thu khách hàng tiềm năng.</p>
-              <p class="amount"><b>Báo giá theo nhu cầu</b></p>
-              <ul>
-                <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>1 trang đích thiết kế riêng</li>
-                <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Biểu mẫu đăng ký, nút Zalo / gọi điện</li>
-                <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Hiển thị tốt trên điện thoại</li>
-              </ul>
-              <a class="btn btn-outline" href="#lien-he">Chọn gói này</a>
-            </div>
-            <div class="plan hot">
-              <div class="for">Đầy đủ &amp; cân đối</div>
-              <h3>Website Doanh Nghiệp</h3>
-              <p class="desc">Cho công ty, cửa hàng và dịch vụ cần một website chính thức, đầy đủ.</p>
-              <p class="amount"><b>Báo giá theo nhu cầu</b></p>
-              <ul>
-                <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>5–10 trang theo thương hiệu</li>
-                <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Trang quản trị tự sửa nội dung</li>
-                <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>SEO kỹ thuật cơ bản, bản đồ Google</li>
-              </ul>
-              <a class="btn btn-primary" href="#lien-he">Chọn gói này</a>
-            </div>
-            <div class="plan">
-              <div class="for">Bán hàng online</div>
-              <h3>Website Bán Hàng</h3>
-              <p class="desc">Cho shop và thương hiệu bán online cần giỏ hàng và thanh toán đầy đủ.</p>
-              <p class="amount"><b>Báo giá theo nhu cầu</b></p>
-              <ul>
-                <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Gian hàng, giỏ hàng, mã giảm giá</li>
-                <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Thanh toán chuyển khoản / ví điện tử</li>
-                <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Quản lý đơn hàng và tồn kho</li>
-              </ul>
-              <a class="btn btn-outline" href="#lien-he">Chọn gói này</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- FAQ -->
-      <section class="soft">
-        <div class="wrap">
-          <div class="sec-head">
-            <div class="sec-label">Hỏi đáp</div>
-            <h2>Câu hỏi thường gặp</h2>
-          </div>
-          <div class="faq-list">
-            <div class="faq-item">
-              <h3>Tôi đã có tên miền riêng, có dùng được không?</h3>
-              <p>Được. Khi triển khai, website sẽ được trỏ về đúng tên miền của bạn và cài đặt chứng chỉ bảo mật HTTPS trong bước đưa website lên mạng.</p>
-            </div>
-            <div class="faq-item">
-              <h3>Làm một website mất bao lâu?</h3>
-              <p>Tuỳ thuộc quy mô và số lượng trang của từng dự án. Studio sẽ chốt lịch thực hiện cụ thể cùng lúc với báo giá, trước khi bắt đầu.</p>
-            </div>
-            <div class="faq-item">
-              <h3>Sau bàn giao tôi có tự sửa nội dung được không?</h3>
-              <p>Được. Website có trang quản trị tiếng Việt dễ dùng và studio hướng dẫn trực tiếp một buổi khi bàn giao.</p>
-            </div>
-            <div class="faq-item">
-              <h3>Thanh toán như thế nào?</h3>
-              <p>Điều khoản thanh toán được trao đổi và ghi rõ trong thỏa thuận trước khi bắt đầu, để cả hai bên cùng nắm rõ từ đầu.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- CONTACT -->
-      <section id="lien-he">
-        <div class="wrap">
-          <div class="contact-grid">
-            <div class="contact-info">
-              <div class="sec-label">Liên hệ</div>
-              <h2>Kể cho studio nghe về dự án của bạn</h2>
-              <p>Chỉ cần vài dòng mô tả ngắn: bạn kinh doanh gì và đang cần loại website nào. Biểu mẫu bên cạnh sẽ soạn sẵn nội dung tóm tắt để bạn gửi cho studio.</p>
-              <div class="contact-row">
-                <span>Email liên hệ</span>
-                <b>Đang cập nhật</b>
-              </div>
-              <div class="contact-row">
-                <span>Tên miền</span>
-                <b>vtdigital.sbs</b>
-              </div>
-            </div>
-            <form class="brief" id="briefForm">
-              <label>Họ tên *
-                <input type="text" id="bfName" required autocomplete="name" placeholder="Ví dụ: Nguyễn Văn A" />
-              </label>
-              <label>Số điện thoại / Zalo *
-                <input type="tel" id="bfPhone" required autocomplete="tel" placeholder="Số điện thoại của bạn" />
-              </label>
-              <label>Loại dự án
-                <select id="bfType">
-                  <option>Landing page</option>
-                  <option selected>Website doanh nghiệp</option>
-                  <option>Website bán hàng</option>
-                  <option>Nhận diện thương hiệu</option>
-                  <option>Khác</option>
-                </select>
-              </label>
-              <label>Mô tả ngắn
-                <textarea id="bfMsg" rows="4" placeholder="Bạn kinh doanh gì, website cần những trang hay tính năng nào…"></textarea>
-              </label>
-              <button type="submit" class="btn btn-primary">Tạo nội dung liên hệ</button>
-              <div class="brief-out" id="briefOut" hidden>
-                <pre id="briefText"></pre>
-                <button type="button" class="btn btn-outline btn-sm" id="copyBtn">Sao chép nội dung</button>
-                <p class="brief-ok" id="briefOk">Nội dung đã sẵn sàng — bạn sao chép và gửi cho studio qua kênh liên hệ quen thuộc của mình.</p>
-              </div>
-            </form>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div class="wrap">
-        <div class="foot-grid">
-          <div style="max-width:280px">
-            <a class="brand" href="#top">
-              <span class="mark">VT<em>.</em></span>
-              <span>Vtdigital Studio</span>
-            </a>
-            <p style="margin:12px 0 0;color:var(--muted);font-size:14.5px">Studio thiết kế website, landing page và thương hiệu số cho doanh nghiệp Việt.</p>
-          </div>
-          <div class="foot-col">
-            <h4>Điều hướng</h4>
-            <a href="#dich-vu">Dịch vụ</a>
-            <a href="#du-an">Dự án mẫu</a>
-            <a href="#quy-trinh">Quy trình</a>
-            <a href="#bang-gia">Gói dịch vụ</a>
-          </div>
-          <div class="foot-col">
-            <h4>Liên hệ</h4>
-            <a href="#lien-he">Gửi yêu cầu dự án</a>
-            <a href="#top">vtdigital.sbs</a>
-          </div>
-        </div>
-        <div class="foot-base">
-          <span>© 2026 <b>Vtdigital Studio</b></span>
-          <span>vtdigital.sbs</span>
-        </div>
-      </div>
-    </footer>
-
-    <script>
-      // Mobile menu
-      var menuBtn = document.getElementById('menuBtn');
-      var mobileMenu = document.getElementById('mobileMenu');
-      menuBtn.addEventListener('click', function () {
-        var open = mobileMenu.classList.toggle('open');
-        menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-      mobileMenu.querySelectorAll('a').forEach(function (a) {
-        a.addEventListener('click', function () { mobileMenu.classList.remove('open'); });
-      });
-
-      // Brief form -> composes a ready-to-send summary the visitor can copy
-      var briefOut = document.getElementById('briefOut');
-      var briefText = document.getElementById('briefText');
-      var copyBtn = document.getElementById('copyBtn');
-      document.getElementById('briefForm').addEventListener('submit', function (e) {
-        e.preventDefault();
-        var name = document.getElementById('bfName').value.trim();
-        var phone = document.getElementById('bfPhone').value.trim();
-        var type = document.getElementById('bfType').value;
-        var msg = document.getElementById('bfMsg').value.trim();
-        briefText.textContent = 'Xin chào Vtdigital Studio,\n\n'
-          + 'Tên: ' + name + '\n'
-          + 'Điện thoại/Zalo: ' + phone + '\n'
-          + 'Loại dự án: ' + type + '\n\n'
-          + 'Mô tả dự án:\n' + (msg || '(chưa mô tả)');
-        copyBtn.textContent = 'Sao chép nội dung';
-        briefOut.hidden = false;
-        briefOut.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-      });
-      copyBtn.addEventListener('click', function () {
-        var done = function () { copyBtn.textContent = 'Đã sao chép ✓'; };
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(briefText.textContent).then(done, function () { fallbackCopy(done); });
-        } else { fallbackCopy(done); }
-      });
-      function fallbackCopy(done) {
-        var range = document.createRange();
-        range.selectNodeContents(briefText);
-        var sel = window.getSelection();
-        sel.removeAllRanges(); sel.addRange(range);
-        try { document.execCommand('copy'); done(); } catch (err) { /* selection stays for manual copy */ }
-        sel.removeAllRanges();
-      }
-    </script>
-  </body>
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Chuyển đến nội dung</a>
+<header><div class="wrap nav"><a class="brand" href="#top"><span class="mark">VT.</span>VT Digital</a><button class="menu" id="menu" aria-expanded="false" aria-controls="navigation">Menu ☰</button><nav id="navigation" aria-label="Điều hướng chính"><a href="#dich-vu">Dịch vụ</a><a href="#tai-chinh">Tài chính số</a><a href="#youtube">YouTube</a><a href="#chia-se">Góc chia sẻ</a><a href="#lien-he">Liên hệ</a></nav><a class="btn primary" href="#lien-he">Cùng hợp tác ↗</a></div></header>
+<main id="main"><div class="hero" id="top"><div class="wrap"><div class="hero-grid"><div><div class="eyebrow">VT DIGITAL · DIGITAL & CREATIVE</div><h1>Công nghệ số.<br>Nội dung sáng tạo.<br><em>Góc nhìn thị trường.</em></h1><p class="lead">Kết nối thiết kế website, tài chính số và sáng tạo YouTube. Xây dựng hiện diện trực tuyến rõ nét, chia sẻ kiến thức và phát triển giá trị bền vững.</p><div class="actions"><a class="btn primary" href="#dich-vu">Khám phá lĩnh vực ↗</a><a class="btn" href="#lien-he">Kết nối với VT Digital</a></div><div class="hero-note">Website & thương hiệu · Phố Wall & crypto · YouTube & nội dung số</div></div><div class="visual" aria-label="Ba lĩnh vực của VT Digital"><div class="visual-top"><span>Ý TƯỞNG → GIÁ TRỊ</span><span>VTDIGITAL.SBS</span></div><div class="orbit">VT<span>.</span></div><div class="visual-row">Thiết kế & công nghệ<span>01 ↗</span></div><div class="visual-row">Tài chính & thị trường<span>02 ↗</span></div><div class="visual-row">Nội dung & YouTube<span>03 ↗</span></div></div></div><div class="pillars"><a class="pillar" href="#dich-vu"><small>01 / DIGITAL STUDIO</small><h2>Xây dựng thương hiệu số ↗</h2><p>Website, giao diện và nội dung cho doanh nghiệp.</p></a><a class="pillar" href="#tai-chinh"><small>02 / DIGITAL FINANCE</small><h2>Hiểu thị trường tài chính ↗</h2><p>Theo dõi Phố Wall, crypto và kiến thức giao dịch.</p></a><a class="pillar" href="#youtube"><small>03 / CREATOR ECONOMY</small><h2>Phát triển nội dung YouTube ↗</h2><p>Từ ý tưởng kênh đến nội dung có giá trị lâu dài.</p></a></div></div></div>
+<section id="dich-vu"><div class="wrap"><div class="section-head"><div><div class="eyebrow">01 / DIGITAL STUDIO</div><h2>Hiện diện số có bản sắc.</h2></div><p>Từ câu chuyện thương hiệu đến trải nghiệm trên màn hình. Phạm vi và báo giá được trao đổi theo từng dự án.</p></div><div class="service-list"><article class="service"><h3>Website & landing page</h3><p>Website giới thiệu doanh nghiệp và trang đích tập trung vào nhu cầu khách hàng, dễ đọc trên điện thoại.</p></article><article class="service"><h3>Nhận diện thương hiệu</h3><p>Logo, màu sắc và kiểu chữ nhất quán để thương hiệu được nhận ra trên các kênh số.</p></article><article class="service"><h3>Thiết kế giao diện UI / UX</h3><p>Sắp xếp nội dung, luồng sử dụng và giao diện phù hợp với mục tiêu của website hoặc ứng dụng.</p></article><article class="service"><h3>SEO & nội dung website</h3><p>Xây dựng cấu trúc và nội dung rõ ràng, tối ưu nền tảng kỹ thuật để công cụ tìm kiếm hiểu website.</p></article><article class="service"><h3>Chăm sóc & cập nhật</h3><p>Cập nhật nội dung và hỗ trợ kỹ thuật theo phạm vi đã thống nhất sau khi bàn giao.</p></article><article class="service"><h3>Giải pháp theo nhu cầu</h3><p>Trao đổi riêng về tính năng quản trị, bán hàng hoặc tích hợp; xác định khả năng triển khai trước khi bắt đầu.</p></article></div></div></section>
+<section id="tai-chinh" class="soft"><div class="wrap"><div class="section-head"><div><div class="eyebrow">02 / DIGITAL FINANCE</div><h2>Thị trường rộng.<br>Góc nhìn có chọn lọc.</h2></div><p>Định hướng chuyên mục của VT Digital: theo dõi thông tin, tìm hiểu bối cảnh và chia sẻ kinh nghiệm giao dịch có kỷ luật.</p></div><div class="grid"><article class="card"><span class="number">01 / PHỐ WALL</span><h3>Nhịp thị trường Mỹ</h3><p>Theo dõi các chủ đề về chứng khoán Mỹ, chính sách tiền tệ, kinh tế vĩ mô và kết quả kinh doanh.</p><a class="more" href="https://www.nyse.com/" target="_blank" rel="noopener noreferrer">Tham khảo nguồn NYSE ↗</a></article><article class="card"><span class="number">02 / CRYPTO</span><h3>Tài sản mã hóa</h3><p>Tìm hiểu Bitcoin, Ethereum, hệ sinh thái blockchain và những chuyển động của thị trường tài sản số.</p><a class="more" href="https://www.coingecko.com/" target="_blank" rel="noopener noreferrer">Theo dõi trên CoinGecko ↗</a></article><article class="card"><span class="number">03 / TRADING JOURNAL</span><h3>Kinh nghiệm giao dịch</h3><p>Chia sẻ cách ghi nhật ký, quản lý rủi ro, xây dựng kế hoạch và nhìn lại quyết định giao dịch.</p><a class="more" href="#chia-se">Khám phá góc chia sẻ ↓</a></article></div><p class="notice">Đây là phần giới thiệu chuyên mục, chưa phải bản tin hoặc bảng giá trực tiếp. Nội dung tài chính mang tính thông tin và chia sẻ kinh nghiệm, không phải khuyến nghị đầu tư. Tài sản mã hóa có rủi ro cao.</p></div></section>
+<section id="youtube"><div class="wrap youtube"><div class="video-art" aria-hidden="true"><div class="play">▶</div><p>IDEA · CREATE · GROW</p></div><div><div class="eyebrow">03 / YOUTUBE & CONTENT</div><h2>Xây kênh từ giá trị.<br>Phát triển bằng nội dung.</h2><p class="lead">Xây dựng kênh YouTube có định hướng: hiểu người xem, giữ bản sắc và cải thiện chất lượng qua từng video.</p><ul class="checks"><li>Định vị chủ đề và lập kế hoạch nội dung</li><li>Kịch bản, cấu trúc video và nhận diện kênh</li><li>Tiêu đề, thumbnail và tối ưu trải nghiệm xem</li><li>Phân tích hiệu quả và tìm hiểu mô hình doanh thu</li></ul><a class="btn" href="mailto:admin@vtdigital.sbs?subject=Trao%20doi%20ve%20kenh%20YouTube">Trao đổi ý tưởng kênh ↗</a><p class="hero-note">Doanh thu phụ thuộc nội dung, người xem và điều kiện của nền tảng; không cam kết mức thu nhập.</p></div></div></section>
+<section id="chia-se" class="soft"><div class="wrap"><div class="section-head"><div><div class="eyebrow">GÓC CHIA SẺ</div><h2>Kiến thức để bắt đầu tốt hơn.</h2></div><p>Ba ghi chú nền tảng để tham khảo. Mở từng mục để đọc nội dung.</p></div><div class="grid"><article class="card"><span class="number">WEBSITE</span><h3>Trước khi làm website</h3><details><summary>Đọc ghi chú</summary><p>Xác định ai sẽ truy cập, họ cần tìm gì và hành động nào bạn muốn họ thực hiện. Chuẩn bị giới thiệu thương hiệu, dịch vụ, hình ảnh và kênh liên hệ. Bắt đầu với cấu trúc rõ ràng rồi bổ sung tính năng theo nhu cầu.</p></details></article><article class="card"><span class="number">NHẬT KÝ GIAO DỊCH</span><h3>Ghi lại để nhìn lại</h3><details><summary>Đọc ghi chú</summary><p>Một nhật ký có thể ghi bối cảnh, lý do ra quyết định, kế hoạch quản lý rủi ro và kết quả thực tế. Tách nhận định ban đầu khỏi đánh giá sau giao dịch để quan sát thói quen của bản thân. Nhật ký không bảo đảm lợi nhuận.</p></details></article><article class="card"><span class="number">YOUTUBE</span><h3>Bắt đầu từ người xem</h3><details><summary>Đọc ghi chú</summary><p>Chọn một nhóm người xem cụ thể và vấn đề bạn có thể giúp họ giải quyết. Lập danh sách chủ đề liên quan, thử cấu trúc video đơn giản và dùng nội dung do bạn tạo hoặc có quyền sử dụng. Cải thiện dựa trên phản hồi thực tế.</p></details></article></div></div></section>
+<section id="du-an"><div class="wrap"><div class="section-head"><div><div class="eyebrow">THIẾT KẾ MINH HỌA</div><h2>Mỗi ngành, một câu chuyện.</h2></div><p>Các ý tưởng bên dưới là mẫu minh họa, không phải dự án khách hàng đã thực hiện.</p></div><div class="grid"><article class="card"><div class="sample"><small>F&B / CONCEPT</small>Hương vị riêng.<br>Dấu ấn khó quên.</div><span class="tag">WEBSITE NHÀ HÀNG</span><h3>Ẩm thực & trải nghiệm</h3><p>Giới thiệu không gian, thực đơn và thông tin đặt bàn rõ ràng.</p></article><article class="card"><div class="sample two"><small>EDUCATION / CONCEPT</small>Kiến thức mở.<br>Hành trình mới.</div><span class="tag">LANDING PAGE</span><h3>Giáo dục & khóa học</h3><p>Trình bày nội dung học, đối tượng phù hợp và cách đăng ký.</p></article><article class="card"><div class="sample three"><small>LIFESTYLE / CONCEPT</small>Chất riêng.<br>Trong từng chi tiết.</div><span class="tag">THƯƠNG HIỆU SỐ</span><h3>Bán lẻ & phong cách</h3><p>Định hình hình ảnh và cách kể câu chuyện sản phẩm.</p></article></div></div></section>
+<section class="soft" id="quy-trinh"><div class="wrap"><div class="section-head"><div><div class="eyebrow">CÁCH HỢP TÁC</div><h2>Rõ từng bước, sát mục tiêu.</h2></div></div><div class="steps"><div><span class="number">01 / LẮNG NGHE</span><h3>Trao đổi nhu cầu</h3><p>Làm rõ mục tiêu, đối tượng và phạm vi công việc.</p></div><div><span class="number">02 / ĐỀ XUẤT</span><h3>Thống nhất hướng đi</h3><p>Duyệt phương án, lịch thực hiện và báo giá trước khi triển khai.</p></div><div><span class="number">03 / THỰC HIỆN</span><h3>Thiết kế & hoàn thiện</h3><p>Xem bản mẫu, góp ý và kiểm tra những nội dung đã thống nhất.</p></div><div><span class="number">04 / BÀN GIAO</span><h3>Đưa vào sử dụng</h3><p>Bàn giao tài liệu và hướng dẫn theo phạm vi dự án.</p></div></div></div></section>
+<section id="lien-he"><div class="wrap contact"><div><div class="eyebrow">BẮT ĐẦU CUỘC TRÒ CHUYỆN</div><h2>Bạn có ý tưởng.<br>Cùng tìm hướng thực hiện.</h2><p>Trao đổi về website, thương hiệu, nội dung YouTube hoặc hợp tác chia sẻ kiến thức.</p><a class="email" href="mailto:admin@vtdigital.sbs">admin@vtdigital.sbs ↗</a><p>Chưa rõ cần bắt đầu từ đâu? Hãy mô tả ngắn mục tiêu của bạn.</p></div><form id="brief"><label>Họ tên *<input name="name" autocomplete="name" required maxlength="100" placeholder="Tên của bạn"></label><label>Email liên hệ *<input name="email" type="email" autocomplete="email" required maxlength="200" placeholder="ban@example.com"></label><label>Chủ đề trao đổi<select name="topic"><option>Website & thương hiệu</option><option>Xây dựng kênh YouTube</option><option>Hợp tác nội dung tài chính số</option><option>Nhu cầu khác</option></select></label><label>Mô tả ngắn *<textarea name="message" required maxlength="3000" placeholder="Mục tiêu, nhu cầu và thời gian dự kiến…"></textarea></label><button class="btn primary" type="submit">Soạn email liên hệ ↗</button><p class="form-note">Nút này mở ứng dụng email với nội dung đã điền. Bạn kiểm tra và tự bấm gửi; website không tự gửi hay lưu biểu mẫu.</p><p id="status" class="status" role="status"></p></form></div></section>
+</main><footer><div class="wrap"><div class="foot"><div><a class="brand" href="#top"><span class="mark">VT.</span>VT Digital</a><p>Công nghệ số, tài chính số và sáng tạo nội dung.<br>Kết nối ý tưởng với giá trị thực tế.</p></div><div class="foot-links"><a href="#dich-vu">Dịch vụ</a><a href="#tai-chinh">Tài chính số</a><a href="#youtube">YouTube</a><a href="mailto:admin@vtdigital.sbs">admin@vtdigital.sbs</a></div></div><div class="bottom">© 2026 VT Digital · vtdigital.sbs</div></div></footer>
+<script>
+const menu=document.getElementById('menu'),nav=document.getElementById('navigation');
+menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));nav.classList.toggle('open',open)});
+nav.addEventListener('click',e=>{if(e.target.closest('a')){nav.classList.remove('open');menu.setAttribute('aria-expanded','false')}});
+document.getElementById('brief').addEventListener('submit',e=>{e.preventDefault();const d=new FormData(e.currentTarget);const subject='[VT Digital] '+d.get('topic');const body=[ 'Họ tên: '+d.get('name'), 'Email: '+d.get('email'), 'Chủ đề: '+d.get('topic'), '', d.get('message') ].join(String.fromCharCode(10));window.location.href='mailto:admin@vtdigital.sbs?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);document.getElementById('status').textContent='Nếu ứng dụng email không mở, bạn có thể gửi trực tiếp đến admin@vtdigital.sbs. Yêu cầu chưa được gửi từ website.'});
+</script>
+</body>
 </html>
